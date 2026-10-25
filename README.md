@@ -9,19 +9,14 @@
 
 GitHub 계정이 없어도 받을 수 있어요. Windows 10(2004 이상)·Windows 11 64비트 PC에서 실행돼요.
 
-| 파일 | 설명 |
-|---|---|
-| `Cellstock-<버전>-Setup.exe` | **이 파일 하나만 받으면 돼요.** 더블클릭해서 설치하고, 관리자 권한이 필요 없어요. |
-| `Cellstock-<버전>-Windows-x64.zip` | 고급 사용자용 압축본. 모두 푼 뒤 `Cellstock\Cellstock.exe`를 실행해요. 폴더 안 파일을 모두 함께 둬야 해요. |
-| `SHA256SUMS.txt` | 받은 파일이 원본과 같은지 확인하는 값 |
-| `먼저 읽어주세요.txt` | 설치·연결·주문·저장 위치·확인 범위 안내 |
+각 Release의 `Cellstock-<버전>-Setup.exe` 하나만 받으면 돼요. 더블클릭해서 설치하고, 관리자 권한은 필요 없어요. 설치·연결·주문 안내는 설치 폴더의 `먼저 읽어주세요.txt`에도 들어 있어요.
 
 ## 설치할 때 “Windows의 PC 보호” 창이 뜨면
 
-아직 코드 서명이 없는 테스트 버전이라 경고가 나와요. 이 저장소에서 받은 파일이 맞다면 **추가 정보 → 실행**을 누르세요. 파일을 확인하고 싶다면 PowerShell에서 아래 명령을 실행해 `SHA256SUMS.txt`의 값과 비교하세요.
+아직 코드 서명이 없는 테스트 버전이라 경고가 나와요. 이 저장소에서 받은 파일이 맞다면 **추가 정보 → 실행**을 누르세요. 파일을 확인하고 싶다면 PowerShell에서 아래 명령을 실행해 다운로드 페이지나 Release의 파일 옆에 표시된 SHA-256 값과 비교하세요.
 
 ```powershell
-Get-FileHash .\Downloads\Cellstock-0.4.0-beta.2-Setup.exe
+Get-FileHash .\Downloads\Cellstock-0.4.0-beta.1-Setup.exe
 ```
 
 ## 꼭 알아 두세요

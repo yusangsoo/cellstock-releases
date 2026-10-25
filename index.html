@@ -189,11 +189,11 @@
     <div class="hero">
       <div class="wrap">
         <div>
-          <span class="badge" id="versionBadge">테스트 버전 0.4.0-beta.2</span>
+          <span class="badge" id="versionBadge">테스트 버전 0.4.0-beta.1</span>
           <h1>익숙한 표에서 시작하는<br>투자 관리, 셀스탁</h1>
           <p class="lead">관심종목 시세와 주문을 엑셀처럼 한 화면에서. Python 같은 개발 도구 없이 설치만 하면 바로 쓸 수 있어요.</p>
           <div class="actions">
-            <a class="btn primary" id="dlSetup" href="https://github.com/yusangsoo/cellstock-releases/releases/download/v0.4.0-beta.2/Cellstock-0.4.0-beta.2-Setup.exe">⬇ 셀스탁 다운로드</a>
+            <a class="btn primary" id="dlSetup" href="https://github.com/yusangsoo/cellstock-releases/releases/download/v0.4.0-beta.1/Cellstock-0.4.0-beta.1-Setup.exe">⬇ 셀스탁 다운로드</a>
           </div>
           <p class="meta" id="dlMeta">Windows 10(2004 이상) · Windows 11 64비트 · 약 13MB · 관리자 권한 필요 없음</p>
         </div>
@@ -267,14 +267,14 @@
       <div class="wrap">
         <h2>파일 확인 (SHA-256)</h2>
         <p>받은 파일이 원본과 같은지 확인하고 싶다면 PowerShell에서 아래 명령을 실행해 값을 비교하세요.</p>
-        <pre><code>Get-FileHash .\Downloads\Cellstock-0.4.0-beta.2-Setup.exe</code></pre>
+        <pre><code>Get-FileHash .\Downloads\Cellstock-0.4.0-beta.1-Setup.exe</code></pre>
         <div id="hashes">
           <div class="hash-row">
-            <strong>Cellstock-0.4.0-beta.2-Setup.exe</strong>
-            <span class="hash">b59f177ae4c71ef1dfed7e965f7ed29a769337fa9768c3d9565ebb1104f47386</span>
+            <strong>Cellstock-0.4.0-beta.1-Setup.exe</strong>
+            <span class="hash">9f3dd6403edaa5f75c362da34a434a78f70e72e111563f129b8da905f075dfe3</span>
           </div>
         </div>
-        <p class="caption"><a id="allReleases" href="https://github.com/yusangsoo/cellstock-releases/releases">모든 버전과 변경 내용 보기</a> · 설치 없이 쓰는 압축본(ZIP)도 이 페이지에 있어요. 고급 사용자용이에요.</p>
+        <p class="caption"><a id="allReleases" href="https://github.com/yusangsoo/cellstock-releases/releases">모든 버전과 변경 내용 보기</a></p>
       </div>
     </section>
   </main>
@@ -290,7 +290,7 @@
   <script>
     (function () {
       var REPO = "yusangsoo/cellstock-releases";
-      var KNOWN_VERSION = "0.4.0-beta.2";
+      var KNOWN_VERSION = "0.4.0-beta.1";
 
       // Windows PC가 아닌 기기(휴대폰·태블릿·Mac)에서는 PC 안내를 띄운다.
       var ua = navigator.userAgent || "";
@@ -334,10 +334,22 @@
             "Windows 10(2004 이상) · Windows 11 64비트 · 약 " + mb(setup) + " · 관리자 권한 필요 없음";
 
           if (version !== KNOWN_VERSION) {
-            // 페이지에 적어 둔 해시는 이전 버전 것이므로 Release의 SHA256SUMS.txt로 안내한다.
-            document.getElementById("hashes").innerHTML =
-              '<p>최신 버전의 SHA-256 값은 <a href="' + rel.html_url +
-              '">Release 페이지</a>의 SHA256SUMS.txt에서 확인하세요.</p>';
+            // 페이지에 적어 둔 해시는 이전 버전 것이므로 GitHub이 계산한 파일 해시로 바꾸고,
+            // 없으면 Release 페이지의 파일 옆 SHA-256으로 안내한다.
+            var hashes = document.getElementById("hashes");
+            var digest = /^sha256:([0-9a-f]{64})$/i.exec(setup.digest || "");
+            if (digest) {
+              hashes.querySelector("strong").textContent = setup.name;
+              hashes.querySelector(".hash").textContent = digest[1];
+            } else {
+              hashes.innerHTML = "";
+              var p = document.createElement("p");
+              var a = document.createElement("a");
+              a.href = rel.html_url;
+              a.textContent = "Release 페이지";
+              p.append("최신 버전의 SHA-256 값은 ", a, "의 파일 옆에서 확인하세요.");
+              hashes.appendChild(p);
+            }
             document.querySelector("#verify pre code").textContent =
               "Get-FileHash .\\Downloads\\" + setup.name;
           }
