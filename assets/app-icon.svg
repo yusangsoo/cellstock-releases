@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <title>엑셀 형태 주식 프로그램 앱 아이콘</title>
+  <desc>짙은 녹색 스프레드시트 위에 선택된 셀과 상승 막대를 표현한 아이콘</desc>
+  <rect x="12" y="12" width="232" height="232" rx="38" fill="#216E46"/>
+  <rect x="48" y="46" width="160" height="164" rx="8" fill="#FFFFFF"/>
+  <path d="M48 82H208M48 118H208M48 154H208M48 190H208M88 82V210M128 82V210M168 82V210" stroke="#DADDE1" stroke-width="4"/>
+  <rect x="92" y="86" width="32" height="28" rx="2" fill="#E8F2EC" stroke="#216E46" stroke-width="3"/>
+  <path d="M137 139V148M151 127V148M165 112V148" stroke="#216E46" stroke-width="8" stroke-linecap="round"/>
+  <path d="M137 165H169" stroke="#7A838E" stroke-width="4" stroke-linecap="round"/>
+</svg>
