@@ -25,7 +25,7 @@ GitHub 계정이 없어도 받을 수 있어요. Windows 10(2004 이상)·Window
 아직 코드 서명이 없는 테스트 버전이라 경고가 나와요. 이 저장소에서 받은 파일이 맞다면 **추가 정보 → 실행**을 누르세요. 파일을 확인하고 싶다면 PowerShell에서 아래 명령을 실행해 다운로드 페이지나 Release의 파일 옆에 표시된 SHA-256 값과 비교하세요.
 
 ```powershell
-Get-FileHash .\Downloads\Cellstock-0.4.0-beta.1-Setup.exe
+Get-FileHash .\Downloads\Cellstock-0.4.0-beta.2-Setup.exe
 ```
 
 ## 꼭 알아 두세요
