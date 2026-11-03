@@ -11,6 +11,8 @@ GitHub 계정이 없어도 받을 수 있어요. Windows 10(2004 이상)·Window
 
 각 Release의 `Cellstock-<버전>-Setup.exe` 하나만 받으면 돼요. 더블클릭해서 설치하고, 관리자 권한은 필요 없어요. 설치·연결·주문 안내는 설치 폴더의 `먼저 읽어주세요.txt`에도 들어 있어요.
 
+API 키 발급과 연결 순서는 [나무Plug API 발급 가이드 (PDF)](assets/cellstock-api-guide.pdf)를 확인해 주세요.
+
 ## 할 수 있는 것
 
 - 관심종목 최대 30개 실시간 시세를 엑셀 같은 표로 확인
